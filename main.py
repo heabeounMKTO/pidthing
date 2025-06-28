@@ -36,6 +36,10 @@ while True:
     if not ret:
         print("Error: Could not read frame")
         break
+
+    results = crop_from_coords(extract_face_coords(face_det(frame)), frame)
+    print(results)
+
     cv2.imshow("Shitty Center Stage", cv2.flip(frame, 1))
     if cv2.waitKey(1) == 27:  # ESC to quit
         break
